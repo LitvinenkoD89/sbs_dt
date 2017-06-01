@@ -1,11 +1,12 @@
-class News < ApplicationRecord
+class Article < ApplicationRecord
   include Publication
   mount_uploader :photo, ImageUploader
 
   validates :title, presence: true
   validate :must_have_photo_or_description
-  has_many :news_events
-  has_many :events, through: :news_events
+  
+  has_many :notepads, :class_name => 'Notepad'
+  has_many :events, through: :notepads
   
   def must_have_photo_or_description
     if !description.present? && !photo.present?

@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   validates :title, :address, :started_at, presence: true
-  has_many :news_events
-  has_many :news, through: :news_events
+  
+  has_many :notepads, :class_name => 'Notepad'
+  has_many :articles, through: :notepads
 end
