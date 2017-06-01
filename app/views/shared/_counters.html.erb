@@ -1,0 +1,78 @@
+<script type="text/javascript">
+  (function ($) {
+    $(document).ready(function(){
+      function isScrolledIntoView(elem) {
+        var $window = $(window), $elem = $(elem);
+        return $elem.offset().top + $elem.height() >= $window.scrollTop() && $elem.offset().top <= $window.scrollTop() + $window.height();
+      }
+      $(document).on("scroll", function(){
+        if(isScrolledIntoView(".counter") && !$(".counter").hasClass("animated")){
+          $(".counter").countTo();
+          $(".counter").addClass("animated");
+        }
+      });
+      
+    });
+  })(jQuery);
+</script>
+<div class="container">  
+  <div class="moduletable   col-sm-12">
+    <div class="module_container">
+      <header class='page_header'>
+        <h2 class="moduleTitle ">
+          <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">
+          </span>
+        </h2>
+      </header>
+      <div class="mod-newsflash-adv counters mod-newsflash-adv__ cols-4" id="module_142">
+        <div class="row">
+          <article class="col-sm-3 item item_num0 item__module  " id="item_79">
+            <div class="item_content">
+              <div class="counter" data-from="0" data-to="200" data-speed="1000"></div>
+              <div class="introtext">
+                <h3>
+                  <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Выступлений в год</span>
+                </h3>   
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </article>
+          <article class="col-sm-3 item item_num1 item__module  " id="item_80">
+            <div class="item_content">
+              <div class="counter" data-from="0" data-to="10" data-speed="1000"></div>
+              <div class="introtext">
+                <h3>
+                  <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Лет в event-сфере</span>
+                </h3>   
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </article>
+          <article class="col-sm-3 item item_num2 item__module  " id="item_81">
+            <div class="item_content">
+              <div class="counter" data-from="0" data-to="14" data-speed="1000"></div>
+              <div class="introtext">
+                <h3>
+                  <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Шоу-программ</span>
+                </h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </article>
+          <article class="col-sm-3 item item_num3 item__module   lastItem" id="item_140">
+            <div class="item_content">
+              <div class="counter" data-from="0" data-to="8" data-speed="1000"></div>
+              <div class="introtext">
+                <h3>
+                  <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Опытных артистов</span>
+                </h3>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </article>
+        </div> 
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

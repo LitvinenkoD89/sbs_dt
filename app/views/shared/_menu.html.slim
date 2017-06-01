@@ -1,0 +1,65 @@
+div.navbar.navbar-blue.navbar-default.navbar-static-top role="navigation"
+  .container-fluid
+    .col-sm-10.col-xs-12
+      .navbar-header style="margin-left: 48px"
+        button.navbar-toggle type="button" data-toggle="collapse" data-target="#navigationbar"
+          span.sr-only
+            | Toggle navigation
+          span.icon-bar 
+          span.icon-bar 
+          span.icon-bar
+        = image_tag("/logo.png", height: '75', width: '200', style: "margin:-0px -50px")
+      .navbar-collapse.collapse.f-right id="navigationbar"
+        ul.nav.navbar-nav.custom_nav style="z-index: 900"
+          li style="z-index: 1000"
+            = link_to "Наши услуги", root_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Наши проекты", projects_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Новости", main_page_index_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Фотографии", photos_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Видео", videos_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Наши заказчики", partners_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "О нас", about_us_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+          li style="z-index: 1000"
+            = link_to "Контакты", contacts_path, class: "blue_bg-hover-color menu_link light", :style => "color: #D26C22;", target: "_self"
+    .col-sm-2.col-xs-12
+      table style="margin-top: 8px; margin-left: -9px;"
+        tr style="color: #66c109;"
+          td style="color: white; font-size: 18px; margin-left: 35px;"
+            span style="color: #5ed839"
+              | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+7(951) 849-74-01   
+      table style="margin-top: 5px;"  
+        tr
+          td style="color: white; font-size: 14px; margin-left: 25px;"
+            span style="color: #5ed839;" id="go_call"
+              i.fa.fa-phone-square style="color: #66c109;"
+              | &nbsp;Заказать обратный звонок!
+   
+
+/ #pageLoader.page-loader
+/   .spinner
+/     .bounce
+/     .bounce
+/     .bounce
+
+/ header#masthead.site-header.site-header-fixed-top
+/   nav#siteHeaderNavbar.site-header-navbar.navbar.navbar-lg.navbar-fixed-top.navbar-bg-from-transparent.navbar-fg-from-light.navbar-default
+/     .container
+/       .navbar-header
+/         button.custom-navbar-toggle.collapsed data-target="#navbar-collapse" data-toggle="collapse" type="button" 
+/           span.bar
+/           span.bar
+/           span.bar
+/         a.navbar-brand href="home-img.html#" 
+/           img.navbar-brand-media-img.navbar-brand-media-img-dark alt="" src="assets/img/navbar-brand-media-img-dark.png" /
+/           img.navbar-brand-media-img.navbar-brand-media-img-light alt="" src="assets/img/navbar-brand-media-img-light.png" /
+/       /! .navbar-header
+/       #navbar-collapse.collapse.navbar-collapse
+/         ul.nav.navbar-nav.navbar-right
+/           li.active
+/             a href="home-img.html"  Home

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DarkTheater</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Шоу Беркана - Мы поможем наполнить праздничное мероприятие яркими красками и незабываемыми впечатлениями - огненно-пиротехнических выступлений, пиродорожки, огнепады, высотные салюты, огненные и пиротехнические инсталляции. Мимы, ходулисты, живые статуи не оставят равнодушными Вас и Ваших гостей"/>
+    <meta name=”keywords” content=”fire-show, огненное шоу, пиротехническе шоу, светодиодное шоу, мимы, живые статуи, ходулисты, шоу Беркана, fire-show Ростов-на-Дону, огненное шоу Ростов-на-Дону, пиротехническе шоу Ростов-на-Дону, светодиодное шоу Ростов-на-Дону, мимы Ростов-на-Дону, живые статуи Ростов-на-Дону, ходулисты Ростов-на-Дону, шоу Беркана Ростов-на-Дону, fire шоу ростов, фаершоу ростов, фаершоу на свадьбу” />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gabriela" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Henny+Penny" type="text/css" />
+    <title>Огненное шоу в Ростове-на-Дону (Fire-show), Светодиодное шоу, Ходулисты, Мимы, Живые статуи, Беркана Шоу</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body class="body__home option-com_content view-category task- itemid-101">
     <%= yield %>
+    <%= render "shared/joomla_footer" %>
   </body>
 </html>

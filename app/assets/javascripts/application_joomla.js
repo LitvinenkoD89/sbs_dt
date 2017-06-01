@@ -1,8 +1,3 @@
-//= require jquery
-//= require bootstrap-sprockets
-//= require jquery_ujs
-//= require turbolinks
-//= require ckeditor/init
 //= require jumla/jquery_jumla.min
 //= require jumla/jquery-noconflict
 //= require jumla/jquery-migrate.min
@@ -16,4 +11,3 @@
 //= require jumla/counters
 //= require jumla/menu
 //= require jumla/jquery.rd-navbar
-//= require_tree .

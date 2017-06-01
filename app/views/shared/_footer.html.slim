@@ -1,0 +1,35 @@
+footer.blue id="footer"
+  .container
+    hr
+    .row
+      .col-sm-2
+      .col-sm-4
+        br
+        p
+          | Хотите заказать огненное шоу? 
+          | Оставьте свой телефон и наш менеджер перезвонит Вам!
+      .col-sm-4
+        form action="/order" class="new_order" id="new_order" method="post"
+          .input-group.input-group
+            span.input-group-addon id="sizing-addon1"
+              i.fa.fa-user
+            input.form-control type="text" placeholder="Ваше имя" aria-describedby="sizing-addon1" name="name"
+          br
+          .input-group.input-group
+            span.input-group-addon id="sizing-addon1"
+              i.fa.fa-phone
+            input.form-control type="text" placeholder="Ваш телефон" aria-describedby="sizing-addon1" name="phone"
+            span.input-group-btn
+              button.btn.btn-secondary.btn-success type="button."
+                | Заказать!
+
+
+      .col-sm-2
+        br
+        - flash.each do |name, msg| 
+          = content_tag :div, msg, class: "alert alert-#{name}"
+    hr
+    div.center
+      span
+        | &copy; Беркана Шоу, Ростов-на-Дону, 2016-2017
+    br  
