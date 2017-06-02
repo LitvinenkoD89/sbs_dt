@@ -1,0 +1,421 @@
+<script type="text/javascript">
+(function($) {
+    $(window).load(function(){
+      var $container = $("#isotopeContainer");
+      $container.mixitup({
+        targetSelector: ".gallery-item",
+        filterSelector: ".filter",
+        sortSelector: ".sort",
+        buttonEvent: "click",
+        effects: [],
+        listEffects: null,
+        easing: "smooth",
+        layoutMode: "grid",
+        targetDisplayGrid: "inline-block",
+        targetDisplayList: "block",
+        gridClass: "grid",
+        listClass: "list",
+        transitionSpeed: 600,
+        showOnLoad: "all",
+        sortOnLoad: false,
+        multiFilter: false,
+        filterLogic: "or",
+        resizeContainer: true,
+        minHeight: 0,
+        failClass: "fail",
+        perspectiveDistance: "3000",
+        perspectiveOrigin: "50% 50%",
+        animateGridList: true,
+        onMixLoad: function(){
+          $container.addClass("loaded");
+        },
+        onMixEnd: function(config){
+          li_count = 0,
+          li_group = 1;
+          height_handler()
+        }
+        
+        });
+      $(window).bind("resize", height_handler).bind("load", height_handler);
+      function height_handler(){
+        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if($("#isotopeContainer").find("div").hasClass("box_inner")){
+          var li_count = 0,
+              li_group = 1,
+              group_count = 0,
+              i = 0,
+              li_groups = [];
+          
+          function set_group(){
+            $("#isotopeContainer li").each(function (){
+              if(li_count > 0 && li_count % 3 == 0){
+                li_group++;
+                li_groups[i] = li_group;
+                group_count++;
+              }
+              $(this).find(".box_inner").css('height', 'auto');
+              $(this).attr("data-equal-group", li_group);
+              
+              li_count++;
+            });
+
+            if(group_count > 0){
+              group_count++;
+            }
+          }
+
+          function set_height(){
+            var i = 1,
+                group_height = [];
+            for(i;i<=group_count;i++){
+              group_height[i] = 0;
+
+              $("#isotopeContainer li").each(function (){
+                if($(this).data('equal-group') == i){
+                  if(group_height[i] < $(this).find(".box_inner").outerHeight()){
+                    group_height[i] = $(this).find(".box_inner").outerHeight();
+                  }
+                }
+              });
+              
+              $("#isotopeContainer li").each(function (){
+                if($(this).data('equal-group') == i){
+                  if(width > 767){
+                    $(this).find(".box_inner").height(group_height[i]);
+                  } else {
+                    $(this).find(".box_inner").css('height', 'auto');
+                  }
+                  
+                }
+              });
+            }
+          } 
+
+          set_group();
+          set_height();
+        }
+      } 
+      
+      height_handler();
+        
+        $("#sort .sort").click(function(){
+        $("#sort .sort").removeClass("selected").removeClass("active");
+        $("#sort .sort").closest("li").removeClass("active");
+        $(this).closest("li").addClass("active");
+        $(this).addClass("selected");
+        if($(this).attr("data-order")=="desc"){
+          $(this).attr("data-order", "asc")
+        }
+        else{
+          $(this).attr("data-order", "desc")
+        }
+      })});
+})(jQuery);
+jQuery(document).ready(function($){
+  jQuery('.hasTooltip').tooltip({"html": true});
+if(window.MooTools) {
+
+        // Mootools conflict fix for toggle with Bootstrap 3/JQuery
+        window.addEvent('load', function() {
+          $$('[rel=tooltip],[data-toggle],a[data-toggle],button[data-toggle],[data-toggle=collapse],a[data-toggle=dropdown],.hasTooltip').each(function (e) {
+              e.getParent().hide = null;
+              e.hide = null;
+          });
+        });
+
+      }
+});
+    jQuery(document).ready(function (){
+      jQuery('select').chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Type or select some options","placeholder_text_single":"Select an option","no_results_text":"No results match"});
+    });
+  
+var path = "templates/theme3339/js/";
+(function($){$(document).ready(function(){var o=$("#back-top");$(window).scroll(function(){if($(this).scrollTop()>100){o.fadeIn()}else{o.fadeOut()}});var $scrollEl=($.browser.mozilla||$.browser.msie)?$("html"):$("body");o.find("a").click(function(){$scrollEl.animate({scrollTop:0},400);return false})})})(jQuery);
+window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/joomla_60082/index.php?option=com_ajax&format=json",true);r.send(null)}},840000);
+(function($){$(document).ready(function(){$(".moduletable#module_107>i.fa-user").click(function(){$(".moduletable#module_107").toggleClass("shown")})})})(jQuery);
+
+jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu").each(function(a){var b=$(this).offset();var c=b.left+$(this).width();if(c>=e){$(this).addClass("ice_righttoleft")}});$(window).resize(function(){var d=$(window).width();$("#icemegamenu").find(".icesubMenu").removeClass("ice_righttoleft").each(function(a){var b=$(this).offset();var c=b.left+$(this).width();if(c>=d){$(this).addClass("ice_righttoleft")}})})});
+</script>
+
+<div id="wrapper">
+  <div class="wrapper-inner">
+    <a id="fake" href='portfolio.html#'></a>
+    <div id="top"><!-- Top -->
+      <div class="container">
+        <div class="row"><!-- Logo -->
+          <%= render "shared/joomla_logo" %>
+        </div>
+      </div>
+    </div>
+
+    <div id="header">
+      <div class="container"><!-- header -->
+        <div class="row">
+          <nav class="moduletable home_menu  col-sm-12">
+            <div class="module_container">
+              <div class="icemegamenu">
+                <ul id="icemegamenu">
+                  <li id="iceMenu_101" class=" iceMenuLiLevel_1 ">
+                    <%= link_to root_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Главная</span>
+                    <% end %>
+                  </li>
+                  <li id="iceMenu_134" class="iceMenuLiLevel_1 current active fullwidth">
+                    <%= link_to services_path, class: " icemega_active iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Наши Услуги</span>
+                    <% end %>  
+                  </li>
+                  <li id="iceMenu_134" class="iceMenuLiLevel_1 ">
+                    <%= link_to about_us_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">О нас</span>
+                    <% end %>  
+                  </li>
+                  <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
+                    <%= link_to blog_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Блог</span>
+                    <% end %> 
+                  </li>
+                  <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+                    <%= link_to gallery_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Галлерея</span>
+                    <% end %>
+                  </li>
+                  <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+                    <%= link_to video_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Видео</span>
+                    <% end %>
+                  </li>
+                  <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+                    <%= link_to reviews_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Отзывы</span>
+                    <% end %>
+                  </li>
+                  <li id="iceMenu_142" class="iceMenuLiLevel_1 ">
+                    <%= link_to contacts_path, class: " iceMenuTitle " do %>
+                      <span class="icemega_title icemega_nosubtitle">Контакты</span>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+  <div id="breadcrumbs"><!-- breadcrumbs -->
+    <div class="container">
+      <div class="row">
+        <div class="moduletable   col-sm-12">
+          <div class="module_container">
+            <ul class="breadcrumb">
+              <li>
+                <a href="https://livedemo00.template-help.com/joomla_60082/index.php" class="pathway">Berkana show</a>
+                <span class="divider fa fa-angle-double-right"></span>
+              </li>
+
+              <li class="active"><span>Наши услуги</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="content"><!-- Main Content row -->
+    <div class="container">
+      <div class="row">
+        <div class="content-inner"><!-- Left sidebar -->
+          <div id="component" class="col-sm-12">
+            <main role="main">
+              <div id="system-message-container"></div>
+              <div class="note"></div>
+              <section class="page-gallery page-gallery__works">
+                <header class="page_header">
+                  <h2>
+                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Наши услуги</span>
+                  </h2>
+                </header>
+
+                <ul id="isotopeContainer" class="gallery items-row row cols-3 hover_false">
+                  <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140502193527" data-name="Popular" data-popularity="224">
+                    <div class="gallery-item__content"><!-- Image  -->
+                      
+                    <figure class="item_img img-intro img-intro__none">
+                      <img src="/images/fire_show.jpg" alt="">
+                      <div class="more_wrapper"><!-- More -->
+                        <div class="vert-align">
+                          <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/66-in-hac-habitasse">
+                            <span>Подробнее      </span>
+                          </a>
+                        </div>
+                      </div>
+                    </figure>    
+                    <div class="box_inner">
+                      <div class="item_header"><!--  title/author -->
+                        <h3 class="item_title">
+                          <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/66-in-hac-habitasse">
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Огненное шоу</span>
+                          </a>
+                        </h3>
+                      </div>
+                      <div class="item_introtext"><!-- Introtext -->
+                        <p>Развлечение для гостей, оригинальный подарок для молодых.</p>
+                      </div>
+                      </div>
+                        <div class="clearfix"></div><!-- info BOTTOM -->
+                      </div>
+                    </li>
+                    <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140501193500" data-name="Architecture" data-popularity="50">
+                      <div class="gallery-item__content">
+                        <figure class="item_img img-intro img-intro__none"><!-- Image  -->
+                          <img src="/images/piro.jpg" alt="">
+                          <div class="more_wrapper"><!-- More -->
+                            <div class="vert-align">
+                              <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/67-proin-dolor-metus">
+                                <span>Подробнее      </span>
+                              </a>
+                            </div>
+                          </div>
+                        </figure>    
+                        <div class="box_inner">
+                          <div class="item_header"> <!--  title/author -->
+                            <h3 class="item_title">
+                              <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/67-proin-dolor-metus">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Пиротехническое шоу</span>
+                              </a>
+                            </h3>
+                          </div>
+                          <div class="item_introtext"><!-- Introtext -->
+                            <p>Вы можете выбрать именно ту пиротехническую программу, которая подходит именно Вам!</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                    <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140503193500" data-name="Art & Illustration" data-popularity="28">
+                      <div class="gallery-item__content">
+                        <figure class="item_img img-intro img-intro__none">
+                          <img src="/images/light_show.jpg" alt="">
+                          <div class="more_wrapper">
+                            <div class="vert-align">
+                              <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/68-fusce-posuere-lacus">
+                                <span>Подробнее      </span>
+                              </a>
+                            </div>
+                          </div>
+                        </figure>    
+                        <div class="box_inner">
+                          <div class="item_header">
+                            <h3 class="item_title">
+                              <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/68-fusce-posuere-lacus">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Светодиодное шоу</span>
+                              </a>
+                            </h3>
+                          </div>
+                          <div class="item_introtext">
+                            <p>Феерическое шоу с профессиональными артистами в светодиодных костюмах.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                  </ul>  
+                  <ul id="isotopeContainer" class="gallery items-row row cols-3 hover_false">
+                    <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140430193500" data-name="Web & Interactive" data-popularity="16">
+                      <div class="gallery-item__content">
+                        <figure class="item_img img-intro img-intro__none" style="max-width: 99%">
+                          <img src="/images/mim.jpg" alt="" style="max-width: 99%">
+                          <div class="more_wrapper">
+                            <div class="vert-align">
+                              <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/69-maecenas-non-odio">
+                                <span>Подробнее      </span>
+                              </a>
+                            </div>
+                          </div>
+                        </figure>    
+                        <div class="box_inner">
+                          <div class="item_header">
+                            <h3 class="item_title">
+                              <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/69-maecenas-non-odio">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Мимы</span>
+                              </a>
+                            </h3>
+                          </div>
+                          <div class="item_introtext">
+                            <p>Best website designs showcased.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                    <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140504193500" data-name="Promotional" data-popularity="16">
+                      <div class="gallery-item__content">
+                        <figure class="item_img img-intro img-intro__none">
+                          <img src="/images/hoduli.jpg" alt="">
+                          <div class="more_wrapper">
+                            <div class="vert-align">
+                              <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/70-curabitur-ac-ante">
+                                <span>Подробнее      </span>
+                              </a>
+                            </div>
+                          </div>
+                        </figure>    
+                        <div class="box_inner">
+                          <div class="item_header">
+                            <h3 class="item_title">
+                              <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/70-curabitur-ac-ante">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Ходулисты</span>
+                              </a>
+                            </h3>
+                          </div>
+                          <div class="item_introtext">
+                            <p>Promotion can be done by different media. Here you will see the artistic approach to promotion.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                    <li class="gallery-item mix mix_all gallery-grid col-sm-4  " data-date="20140429193500" data-name="Games & Entertainment" data-popularity="21">
+                      <div class="gallery-item__content">
+                        <figure class="item_img img-intro img-intro__none">
+                          <img src="/images/live.jpg" alt="">
+                          <div class="more_wrapper">
+                            <div class="vert-align">
+                              <a class="btn btn-info item_more" href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/71-quisque-est-velit">
+                                <span>Подробнее      </span>
+                              </a>
+                            </div>
+                          </div>
+                        </figure>    
+                        <div class="box_inner">
+                          <div class="item_header">
+                            <h3 class="item_title">
+                              <a href="https://livedemo00.template-help.com/joomla_60082/index.php/pages/portfolio/71-quisque-est-velit">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Живые статуи</span>
+                              </a>
+                            </h3>
+                          </div>
+                          <div class="item_introtext">
+                            <p>Traditional art forms are things you cannot win; you can only experience them.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul id="isotopeContainer" class="gallery items-row row cols-3 hover_false">
+                    <li class="gap col-sm-4"></li>
+                    <li class="gap col-sm-4"></li>
+                    <li class="gap col-sm-4"></li>
+                  </ul>
+                </section>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 

@@ -169,29 +169,44 @@ jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu")
 <div class="icemegamenu">
   <ul id="icemegamenu">
     <li id="iceMenu_101" class="iceMenuLiLevel_1 current active fullwidth">
-      <a href="index.html" class="icemega_active iceMenuTitle ">
+      <%= link_to root_path, class: " icemega_active iceMenuTitle " do %>
         <span class="icemega_title icemega_nosubtitle">Главная</span>
-      </a>
+      <% end %>
     </li>
     <li id="iceMenu_134" class="iceMenuLiLevel_1 ">
-      <a href="https://livedemo00.template-help.com/joomla_60082/index.php/about-us" class=" iceMenuTitle ">
+      <%= link_to services_path, class: " iceMenuTitle " do %>
+        <span class="icemega_title icemega_nosubtitle">Наши Услуги</span>
+      <% end %>  
+    </li>
+    <li id="iceMenu_134" class="iceMenuLiLevel_1 ">
+      <%= link_to about_us_path, class: " iceMenuTitle " do %>
         <span class="icemega_title icemega_nosubtitle">О нас</span>
-      </a>
+      <% end %>  
     </li>
     <li id="iceMenu_285" class="iceMenuLiLevel_1 ">
-      <a href="https://livedemo00.template-help.com/joomla_60082/index.php/blog" class=" iceMenuTitle ">
+      <%= link_to blog_path, class: " iceMenuTitle " do %>
         <span class="icemega_title icemega_nosubtitle">Блог</span>
-      </a>
+      <% end %> 
     </li>
     <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
-      <a href="https://livedemo00.template-help.com/joomla_60082/index.php/gallery" class=" iceMenuTitle ">
+      <%= link_to gallery_path, class: " iceMenuTitle " do %>
         <span class="icemega_title icemega_nosubtitle">Галлерея</span>
-      </a>
+      <% end %>
+    </li>
+    <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+      <%= link_to video_path, class: " iceMenuTitle " do %>
+        <span class="icemega_title icemega_nosubtitle">Видео</span>
+      <% end %>
+    </li>
+    <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+      <%= link_to reviews_path, class: " iceMenuTitle " do %>
+        <span class="icemega_title icemega_nosubtitle">Отзывы</span>
+      <% end %>
     </li>
     <li id="iceMenu_142" class="iceMenuLiLevel_1 ">
-      <a href="https://livedemo00.template-help.com/joomla_60082/index.php/contacts" class=" iceMenuTitle ">
+      <%= link_to contacts_path, class: " iceMenuTitle " do %>
         <span class="icemega_title icemega_nosubtitle">Контакты</span>
-      </a>
+      <% end %>
     </li>
   </ul>
 </div></div></nav></div>
