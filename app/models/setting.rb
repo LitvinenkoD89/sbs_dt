@@ -1,3 +1,3 @@
-class Setting < ActiveRecord::Base
+class Setting < ApplicationRecord
   include State
 end

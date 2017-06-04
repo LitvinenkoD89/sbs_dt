@@ -19,18 +19,11 @@
                         </header> -->
                         <div class="mod-menu">
                           <ul class="menu list">
-                            <li class="item-550">
-                              Шолоховская весна
-                            </li>
-                            <li class="item-551">
-                              День рождения Ночных Волков
-                            </li>
-                            <li class="item-552">
-                              Фестиваль водных фонариков
-                            </li>
-                            <li class="item-553">
-                              Ночь в музее
-                            </li>
+                            <% @past_events.each do |event| %>
+                              <li class="item-550">
+                                <%= event.title %>
+                              </li>
+                            <% end %>  
                           </ul>
                         </div>
                       </div>
@@ -53,18 +46,20 @@
                         </header>
                         <div class="mod-newsflash-adv mod-newsflash-adv__indent cols-2" id="module_216">
                           <div class="row">
-                            <article class="col-sm-6 item item_num0 item__module  " id="item_153">
-                              <div class="item_content">
-                                <figure class="item_img img-intro img-intro__"> 
-                                  <img src="https://livedemo00.template-help.com/joomla_60082/images/page1-img5.jpg" alt="">
-                                </figure>
-                                <div class="item_introtext">
-                                  Seeking a bigger scare than you'll get from the local sugar-swindling kids? Spend your Halloween at one of these terrifying theatre shows instead. Experience the intimate immersive... 
+                            <% @events_with_articles.each do |event| %>
+                              <article class="col-sm-6 item item_num0 item__module  " id="item_153">
+                                <div class="item_content">
+                                  <figure class="item_img img-intro img-intro__"> 
+                                    <%= image_tag(event.articles.first.photo_url(:thumb)) %>
+                                  </figure>
+                                  <div class="item_introtext">
+                                    <%= event.articles.first.short_description.html_safe %>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="clearfix"></div>  
-                            </article>
-                            <article class="col-sm-6 item item_num1 item__module  lastItem" id="item_154">
+                                <div class="clearfix"></div>  
+                              </article>
+                            <% end %>  
+                            <!-- <article class="col-sm-6 item item_num1 item__module  lastItem" id="item_154">
                               <div class="item_content">
                                 <figure class="item_img img-intro img-intro__"> 
                                   <img src="https://livedemo00.template-help.com/joomla_60082/images/page1-img6.jpg" alt="">
@@ -74,7 +69,7 @@
                                 </div>
                               </div>
                               <div class="clearfix"></div>  
-                            </article>
+                            </article> -->
                           </div> 
                           <div class="clearfix"></div>
                         </div>
@@ -98,47 +93,21 @@
                       <span class="item_title_part_1 item_title_part_even item_title_part_second_half item_title_part_last">мероприятия</span>
                     </h2>
                   </header>
-                  <div class="row">
-                    <article class="col-sm-12 item item_num0 item__module  " id="item_149">
-                      <div class="item_content">
-                        <h5 class="item_title item_title__type">
-                          <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Рекламное выступление</span>
-                        </h5>
-                        <div class="item_introtext">
-                          Friday, September 20, 2016 - Sunday, September 29, 2016
+                  <% @future_events.each do |event| %>
+                    <div class="row">
+                      <article class="col-sm-12 item item_num0 item__module  " id="item_149">
+                        <div class="item_content">
+                          <h5 class="item_title item_title__type">
+                            <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first"><%= event.title %></span>
+                          </h5>
+                          <div class="item_introtext">
+                            <%= print_event_date(event.started_at) %>
+                          </div>
                         </div>
-                      </div>
-                      <div class="clearfix"></div>  
-                    </article>
-                  </div>
-                  <div class="row">
-                    <article class="col-sm-12 item item_num1 item__module  " id="item_150">
-                      <div class="item_content">
-                        <h5 class="item_title item_title__type">
-                          <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">Очередное</span>
-                          <span class="item_title_part_1 item_title_part_even item_title_part_first_half">бесплатное</span>
-                          <span class="item_title_part_2 item_title_part_odd item_title_part_second_half">выступление</span>
-                        </h5>
-                        <div class="item_introtext">
-                          Friday, September 20, 2016 - Sunday, September 29, 2016
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </article>
-                  </div>
-                  <div class="row">
-                    <article class="col-sm-12 item item_num2 item__module  " id="item_151">
-                    <div class="item_content">
-                      <h5 class="item_title item_title__type">
-                        <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">И снова работаем за еду</span>
-                      </h5>
-                      <div class="item_introtext">
-                        Friday, September 20, 2016 - Sunday, September 29, 2016
-                      </div>
+                        <div class="clearfix"></div>  
+                      </article>
                     </div>
-                    <div class="clearfix"></div>  
-                  </article>
-                </div>
+                  <% end %>
                 <div class="clearfix"></div>
               </div>
             </div>

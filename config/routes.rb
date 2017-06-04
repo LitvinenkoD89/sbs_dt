@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "about_us" => "home#about_us"
   get "contacts" => "home#contacts"
-  get "services" => "home#services"
+  
+  # get "services" => "home#services"
+  # get "services/fire" => "services#fire"
+  
+  resources :services, param: :alias_name
+  
   get "reviews" => "home#reviews"
   get "gallery" => "home#gallery"
   get "video" => "home#video"

@@ -3,10 +3,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require ckeditor/init
+//= require blueimp-gallery-all
 //= require jumla/jquery_jumla.min
 //= require jumla/jquery-noconflict
 //= require jumla/jquery-migrate.min
 //= require jumla/jquery.mixitup.min
+//= require jumla/jquery.fancybox.pack
+//= require jumla/jquery.fancybox-thumbs
+//= require jumla/jquery.pep
 //= require jumla/bootstrap_jumla.min
 //= require jumla/chosen.jquery.min
 //= require jumla/scripts

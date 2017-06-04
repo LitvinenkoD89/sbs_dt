@@ -1,0 +1,123 @@
+= javascript_include_tag 'application', 'data-turbolinks-track': 'false'
+
+#wrapper
+  #blueimp-gallery.blueimp-gallery
+    .slides
+    h3.title
+    a.prev ‹
+    a.next ›
+    a.close ×
+    a.play-pause
+    ol.indicator
+  .wrapper-inner
+    #top
+      .container
+        .row
+          = render "shared/joomla_logo" 
+    #header
+      .container
+        .row
+          nav.moduletable.home_menu.col-sm-12
+            .module_container
+              .icemegamenu
+                ul#icemegamenu
+                  li#iceMenu_101.iceMenuLiLevel_1
+                    = link_to root_path, class: " iceMenuTitle " do 
+                      span.icemega_title.icemega_nosubtitle Главная
+                  li#iceMenu_134.iceMenuLiLevel_1.mzr-drop.parent.active 
+                    = link_to services_path, class: " icemega_active iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Наши Услуги
+                    ul.icesubMenu.icemodules.sub_level_1 style="width:188px" 
+                      li
+                        .iceCols style="float:left;width:188px" 
+                          ul
+                            - get_services.each do |serv|
+                              - if current_page?(controller: 'services', action: 'show', alias_name: "#{serv.alias_name}")
+                                li#iceMenu_336.iceMenuLiLevel_2.current.active
+                                  = link_to service_path(serv.alias_name), class: " iceMenuTitle " do
+                                    span.icemega_title.icemega_nosubtitle 
+                                      = serv.name
+                              - else
+                                li#iceMenu_336.iceMenuLiLevel_2
+                                  = link_to service_path(serv.alias_name), class: " iceMenuTitle " do
+                                    span.icemega_title.icemega_nosubtitle 
+                                      = serv.name    
+                  li#iceMenu_134.iceMenuLiLevel_1
+                    = link_to about_us_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle О нас
+                  li#iceMenu_285.iceMenuLiLevel_1
+                    = link_to blog_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Блог
+                  li#iceMenu_203.iceMenuLiLevel_1.gallery
+                    = link_to gallery_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Галлерея
+                  li#iceMenu_203.iceMenuLiLevel_1.gallery
+                    = link_to video_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Видео
+                  li#iceMenu_203.iceMenuLiLevel_1.gallery
+                    = link_to reviews_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Отзывы
+                  li#iceMenu_142.iceMenuLiLevel_1
+                    = link_to contacts_path, class: " iceMenuTitle " do
+                      span.icemega_title.icemega_nosubtitle Контакты
+    /! breadcrumbs
+    #breadcrumbs
+      .container
+        .row
+          .moduletable.col-sm-12
+            .module_container
+              ul.breadcrumb
+                li
+                  a.pathway href="/"  Berkana show
+                  span.divider.fa.fa-angle-double-right
+                li
+                  a.pathway href="/services"  Наши услуги
+                  span.divider.fa.fa-angle-double-right
+                li.active
+                  span
+                    = @service.name
+    #content
+      .container
+        .row
+          .content-inner
+            #component.col-sm-12
+              main role="main" 
+                #system-message-container
+                article.page-item__gallery.page-item__works
+                  header.item_header
+                    h2.item_title
+                      span.item_title_part_0.item_title_part_odd.item_title_part_first_half.item_title_part_first.item_title_part_last 
+                        = @service.name
+                  .page-gallery_img
+                    figure#links1.item_img.img-full.img-full__left
+                      = link_to @service.service_photos.where(priority: 0).first.link_photo_url(:service_main_photo_3) do
+                        = image_tag(@service.service_photos.where(priority: 0).first.link_photo_url(:service_main_photo_3), alt: "Огненное шоу Fire show Ростов Ростов-на-Дону шоу Беркана Berkana Show", title: "Огненное шоу Беркана Ростов-на-Дону (Fire-show Berkana)")
+                  .item_fulltext
+                    =raw @service.description
+                  .addthis_sharing_toolbox
+        .row#links2
+          - @service.service_photos.where("priority > 0").first(3).each do |serv_photo|
+            #component.col-sm-4 style="margin-top: 30px"
+              = link_to serv_photo.link_photo_url(:service_main_photo_3) do
+                = image_tag(serv_photo.link_photo_url(:service_main_photo_3), alt: "Огненное шоу Fire show Ростов Ростов-на-Дону шоу Беркана Berkana Show", title: "Огненное шоу Беркана Ростов-на-Дону (Fire-show Berkana)")
+
+coffee:
+  document.getElementById("links1").onclick = (event) ->
+    event = event or window.event
+    target = event.target or event.srcElement
+    link = (if target.src then target.parentNode else target)
+    options =
+      index: link
+      event: event
+    links = @getElementsByTagName("a")
+    blueimp.Gallery links, options
+
+  document.getElementById("links2").onclick = (event) ->
+    event = event or window.event
+    target = event.target or event.srcElement
+    link = (if target.src then target.parentNode else target)
+    options =
+      index: link
+      event: event
+    links = @getElementsByTagName("a")
+    blueimp.Gallery links, options

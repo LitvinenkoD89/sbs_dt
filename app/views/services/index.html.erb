@@ -160,11 +160,40 @@ jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu")
                       <span class="icemega_title icemega_nosubtitle">Главная</span>
                     <% end %>
                   </li>
-                  <li id="iceMenu_134" class="iceMenuLiLevel_1 current active fullwidth">
+                  <li id="iceMenu_134" class="iceMenuLiLevel_1 mzr-drop parent active">
                     <%= link_to services_path, class: " icemega_active iceMenuTitle " do %>
-                      <span class="icemega_title icemega_nosubtitle">Наши Услуги</span>
+                      <span class="icemega_title icemega_nosubtitle">
+                        Наши Услуги
+                      </span>
                     <% end %>  
-                  </li>
+                    <ul class="icesubMenu icemodules sub_level_1 style="width:188px"> 
+                      <li>
+                        <div class="iceCols" style="float:left;width:188px">
+                          <ul>
+                            <% get_services.each do |serv| %>
+                              <% if current_page?(controller: 'services', action: 'show', alias_name: "#{serv.alias_name}") %>
+                                <li id="iceMenu_336" class="iceMenuLiLevel_2 current active">
+                                  <%= link_to service_path(serv.alias_name), class: " iceMenuTitle " do %> 
+                                    <span class="icemega_title icemega_nosubtitle">
+                                      <%= serv.name %>
+                                    </span>   
+                                  <% end %> 
+                                </li>     
+                              <%  else %> 
+                                <li id="iceMenu_336" class="iceMenuLiLevel_2">
+                                  <%= link_to service_path(serv.alias_name), class: " iceMenuTitle " do %> 
+                                    <span class="icemega_title icemega_nosubtitle">
+                                      <%= serv.name %> 
+                                    </span>  
+                                  <% end %>  
+                                </li>      
+                              <% end %> 
+                            <% end %> 
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>          
                   <li id="iceMenu_134" class="iceMenuLiLevel_1 ">
                     <%= link_to about_us_path, class: " iceMenuTitle " do %>
                       <span class="icemega_title icemega_nosubtitle">О нас</span>
@@ -210,7 +239,7 @@ jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu")
           <div class="module_container">
             <ul class="breadcrumb">
               <li>
-                <a href="https://livedemo00.template-help.com/joomla_60082/index.php" class="pathway">Berkana show</a>
+                <a href="/" class="pathway">Berkana show</a>
                 <span class="divider fa fa-angle-double-right"></span>
               </li>
 

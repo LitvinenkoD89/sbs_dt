@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   include Publication
   mount_uploader :link_photo, ImageUploader
   validates :title, :link_photo, presence: true
