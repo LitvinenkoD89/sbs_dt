@@ -4,6 +4,6 @@ module ApplicationHelper
   end  
 
   def get_services
-    Service.all
+    Service.all.order(:id)
   end  
 end

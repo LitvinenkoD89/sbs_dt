@@ -1,7 +1,4 @@
 //= require jquery
-//= require bootstrap-sprockets
-//= require jquery_ujs
-//= require turbolinks
 //= require ckeditor/init
 //= require blueimp-gallery-all
 //= require jumla/jquery_jumla.min

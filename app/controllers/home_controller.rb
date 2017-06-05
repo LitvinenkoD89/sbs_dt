@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   def gallery
+    @photos = Photos.all
   end  
 
   def video

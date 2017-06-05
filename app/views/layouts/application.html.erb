@@ -12,7 +12,145 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+    <script type="text/javascript">
+(function($) {
+    $(window).load(function(){
+      var $container = $("#isotopeContainer");
+      $container.mixitup({
+        targetSelector: ".gallery-item",
+        filterSelector: ".filter",
+        sortSelector: ".sort",
+        buttonEvent: "click",
+        effects: [],
+        listEffects: null,
+        easing: "smooth",
+        layoutMode: "grid",
+        targetDisplayGrid: "inline-block",
+        targetDisplayList: "block",
+        gridClass: "grid",
+        listClass: "list",
+        transitionSpeed: 600,
+        showOnLoad: "all",
+        sortOnLoad: false,
+        multiFilter: false,
+        filterLogic: "or",
+        resizeContainer: true,
+        minHeight: 0,
+        failClass: "fail",
+        perspectiveDistance: "3000",
+        perspectiveOrigin: "50% 50%",
+        animateGridList: true,
+        onMixLoad: function(){
+          $container.addClass("loaded");
+        },
+        onMixEnd: function(config){
+          li_count = 0,
+          li_group = 1;
+          height_handler()
+        }
+        
+        });
+      $(window).bind("resize", height_handler).bind("load", height_handler);
+      function height_handler(){
+        var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        if($("#isotopeContainer").find("div").hasClass("box_inner")){
+          var li_count = 0,
+              li_group = 1,
+              group_count = 0,
+              i = 0,
+              li_groups = [];
+          
+          function set_group(){
+            $("#isotopeContainer li").each(function (){
+              if(li_count > 0 && li_count % 3 == 0){
+                li_group++;
+                li_groups[i] = li_group;
+                group_count++;
+              }
+              $(this).find(".box_inner").css('height', 'auto');
+              $(this).attr("data-equal-group", li_group);
+              
+              li_count++;
+            });
+
+            if(group_count > 0){
+              group_count++;
+            }
+          }
+
+          function set_height(){
+            var i = 1,
+                group_height = [];
+            for(i;i<=group_count;i++){
+              group_height[i] = 0;
+
+              $("#isotopeContainer li").each(function (){
+                if($(this).data('equal-group') == i){
+                  if(group_height[i] < $(this).find(".box_inner").outerHeight()){
+                    group_height[i] = $(this).find(".box_inner").outerHeight();
+                  }
+                }
+              });
+              
+              $("#isotopeContainer li").each(function (){
+                if($(this).data('equal-group') == i){
+                  if(width > 767){
+                    $(this).find(".box_inner").height(group_height[i]);
+                  } else {
+                    $(this).find(".box_inner").css('height', 'auto');
+                  }
+                  
+                }
+              });
+            }
+          } 
+
+          set_group();
+          set_height();
+        }
+      } 
+      
+      height_handler();
+        
+        $("#sort .sort").click(function(){
+        $("#sort .sort").removeClass("selected").removeClass("active");
+        $("#sort .sort").closest("li").removeClass("active");
+        $(this).closest("li").addClass("active");
+        $(this).addClass("selected");
+        if($(this).attr("data-order")=="desc"){
+          $(this).attr("data-order", "asc")
+        }
+        else{
+          $(this).attr("data-order", "desc")
+        }
+      })});
+})(jQuery);
+jQuery(document).ready(function($){
+  jQuery('.hasTooltip').tooltip({"html": true});
+if(window.MooTools) {
+
+        // Mootools conflict fix for toggle with Bootstrap 3/JQuery
+        window.addEvent('load', function() {
+          $$('[rel=tooltip],[data-toggle],a[data-toggle],button[data-toggle],[data-toggle=collapse],a[data-toggle=dropdown],.hasTooltip').each(function (e) {
+              e.getParent().hide = null;
+              e.hide = null;
+          });
+        });
+
+      }
+});
+    jQuery(document).ready(function (){
+      jQuery('select').chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Type or select some options","placeholder_text_single":"Select an option","no_results_text":"No results match"});
+    });
+  
+var path = "templates/theme3339/js/";
+(function($){$(document).ready(function(){var o=$("#back-top");$(window).scroll(function(){if($(this).scrollTop()>100){o.fadeIn()}else{o.fadeOut()}});var $scrollEl=($.browser.mozilla||$.browser.msie)?$("html"):$("body");o.find("a").click(function(){$scrollEl.animate({scrollTop:0},400);return false})})})(jQuery);
+
+(function($){$(document).ready(function(){$(".moduletable#module_107>i.fa-user").click(function(){$(".moduletable#module_107").toggleClass("shown")})})})(jQuery);
+
+jQuery(function($){var e=$(window).width();$("#icemegamenu").find(".icesubMenu").each(function(a){var b=$(this).offset();var c=b.left+$(this).width();if(c>=e){$(this).addClass("ice_righttoleft")}});$(window).resize(function(){var d=$(window).width();$("#icemegamenu").find(".icesubMenu").removeClass("ice_righttoleft").each(function(a){var b=$(this).offset();var c=b.left+$(this).width();if(c>=d){$(this).addClass("ice_righttoleft")}})})});
+</script>
   </head>
 
   <body class="body__home option-com_content view-category task- itemid-101">

@@ -1,5 +1,3 @@
-= javascript_include_tag 'application', 'data-turbolinks-track': 'false'
-
 #wrapper
   #blueimp-gallery.blueimp-gallery
     .slides
@@ -90,7 +88,7 @@
                         = @service.name
                   .page-gallery_img
                     figure#links1.item_img.img-full.img-full__left
-                      = link_to @service.service_photos.where(priority: 0).first.link_photo_url(:service_main_photo_3) do
+                      = link_to @service.service_photos.where(priority: 0).first.link_photo_url(:news_photo) do
                         = image_tag(@service.service_photos.where(priority: 0).first.link_photo_url(:service_main_photo_3), alt: "Огненное шоу Fire show Ростов Ростов-на-Дону шоу Беркана Berkana Show", title: "Огненное шоу Беркана Ростов-на-Дону (Fire-show Berkana)")
                   .item_fulltext
                     =raw @service.description
@@ -98,7 +96,7 @@
         .row#links2
           - @service.service_photos.where("priority > 0").first(3).each do |serv_photo|
             #component.col-sm-4 style="margin-top: 30px"
-              = link_to serv_photo.link_photo_url(:service_main_photo_3) do
+              = link_to serv_photo.link_photo_url(:news_photo) do
                 = image_tag(serv_photo.link_photo_url(:service_main_photo_3), alt: "Огненное шоу Fire show Ростов Ростов-на-Дону шоу Беркана Berkana Show", title: "Огненное шоу Беркана Ростов-на-Дону (Fire-show Berkana)")
 
 coffee:
