@@ -1,0 +1,39 @@
+form.form-horizontal
+  .sandbox.row
+    .col-sm-10
+      select.selectized name="category_ids[]" id="select-to" placeholder="Категории..." multiple="multiple" tabindex="-1" style="display: none;"
+        - category_ids.each do |id|
+          option value="#{id}" selected='selected'
+
+        .selectize-dropdown.multi style="visibility: visible;"
+          .selectize-dropdown-content
+            - categories.each do |cat|
+              div class="dat_val" data-value="#{cat.id}" data-selectable="" id="#{cat.id}"
+                span.label
+                  = cat.title  
+    .col-sm-2.center             
+      = button_tag "Найти", :class => 'btn search_button center' 
+javascript:
+  $('#select-to').selectize({
+    persist: false,
+    maxItems: null,
+    valueField: 'id',
+    labelField: 'title',
+    searchField: ['id', 'title'],
+    options: #{@categories.to_json.html_safe},
+    render: {
+        item: function(item, escape) {
+            return '<div>' +
+                '<span class="title" id="' + item.id + '">' + escape(item.title) + '</span>' +
+            '</div>';
+        },
+        option: function(item, escape) {
+            var label = item.title;
+            var caption = item.title;
+            return '<div>' +
+                '<span class="label">' + escape(label) + '</span>' +
+                (caption ? '<span class="caption">' + escape(caption) + '</span>' : '') +
+            '</div>';
+        }
+    },
+  });      

@@ -2,6 +2,8 @@ class Article < ApplicationRecord
   include Publication
   mount_uploader :photo, ImageUploader
 
+  paginates_per 15
+  
   validates :title, presence: true
   validate :must_have_photo_or_description
   

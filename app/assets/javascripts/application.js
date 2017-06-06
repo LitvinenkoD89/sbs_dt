@@ -1,5 +1,7 @@
 //= require jquery
 //= require ckeditor/init
+//= require selectize
+//= require bootstrap-sprockets
 //= require blueimp-gallery-all
 //= require jumla/jquery_jumla.min
 //= require jumla/jquery-noconflict

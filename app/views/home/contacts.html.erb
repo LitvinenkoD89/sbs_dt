@@ -102,8 +102,8 @@ var path = "templates/theme3339/js/";
                     <span class="icemega_title icemega_nosubtitle">Блог</span>
                   <% end %> 
                 </li>
-                <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery current active fullwidth">
-                  <%= link_to gallery_path, class: " iceMenuTitle icemega_active " do %>
+                <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+                  <%= link_to gallery_path, class: " iceMenuTitle " do %>
                     <span class="icemega_title icemega_nosubtitle">Галлерея</span>
                   <% end %>
                 </li>
@@ -112,13 +112,13 @@ var path = "templates/theme3339/js/";
                     <span class="icemega_title icemega_nosubtitle">Видео</span>
                   <% end %>
                 </li>
-                <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
-                  <%= link_to reviews_path, class: " iceMenuTitle " do %>
+                <li id="iceMenu_203" class="iceMenuLiLevel_1">
+                  <%= link_to reviews_path, class: " iceMenuTitle" do %>
                     <span class="icemega_title icemega_nosubtitle">Отзывы</span>
                   <% end %>
                 </li>
-                <li id="iceMenu_142" class="iceMenuLiLevel_1 ">
-                  <%= link_to contacts_path, class: " iceMenuTitle " do %>
+                <li id="iceMenu_142" class="iceMenuLiLevel_1 gallery current active fullwidth">
+                  <%= link_to contacts_path, class: " iceMenuTitle icemega_active " do %>
                     <span class="icemega_title icemega_nosubtitle">Контакты</span>
                   <% end %>
                 </li>
@@ -139,7 +139,7 @@ var path = "templates/theme3339/js/";
                 <a href="/" class="pathway">Berkana show</a>
                 <span class="divider fa fa-angle-double-right"></span>
               </li>
-              <li class="active"><span>Галлерея</span></li>
+              <li class="active"><span>Контакты</span></li>
             </ul>
           </div>
         </div>
@@ -147,43 +147,18 @@ var path = "templates/theme3339/js/";
     </div>
   </div>
 
-  <div id="content">
-    <div class="container">
-      <div class="row">
-        <div class="content-inner">
-          <div id="component" class="col-sm-12">
-            <main role="main">
-              <div id="system-message-container"></div>
-              <div class="gallery">
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="content-inner">
+            <div id="component" class="col-sm-12">
+              <main role="main">
+                <div id="system-message-container"></div>
                 <header class="page_header">
                   <h2>
-                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Галлерея</span>
+                    <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Контакты</span>
                   </h2>
-                </header>
-                <div id="search">
-                  <%= render :partial => 'shared/category_select', :locals => { :category_ids => @category_ids, :categories => @categories } %>
-                </div>
-                <div class="jg_category"></div>
-                <div class="jg_gallery row cols-3" id="jg_gallery">
-                  <div class="jg_displaynone"></div>  
-                  <% @photos.each do |photo| %>  
-                    <div class="jg_element_cat mix gallery-grid gallery-item col-sm-4" data-date="20161013170132" data-value="0">
-                      <div class="jg_imgalign_catimgs" style="overflow: hidden; max-height: 220px; margin-top: 30px">
-                        <%= link_to photo.link_photo_url(:service_main_photo_2) do %>
-                          <%= image_tag(photo.link_photo_url(:service_main_photo_2), size: "768x540", class: "jg_photo_custom") %>
-                        <% end %>  
-                        <div class="jg_catelem_txt">
-                          <ul></ul>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>  
-                  <div class="jg_displaynone"></div>
-                </div>
-                <div style="text-align: center; font-family: Gabriela;">
-                  <%= paginate @photos %>
-                </div>  
-              </div>
+                </header> 
               </main>
             </div>
           </div>
@@ -192,18 +167,3 @@ var path = "templates/theme3339/js/";
     </div>
   </div>
 </div>
-<script>(function() {
-  document.getElementById("jg_gallery").onclick = function(event) {
-    var link, links, options, target;
-    event = event || window.event;
-    target = event.target || event.srcElement;
-    link = (target.src ? target.parentNode : target);
-    options = {
-      index: link,
-      event: event
-    };
-    links = this.getElementsByTagName("a");
-    return blueimp.Gallery(links, options);
-  };
-}).call(this);
-</script>
