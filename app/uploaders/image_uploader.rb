@@ -11,6 +11,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [200, 200]
   end
 
+  version :avatar do
+    process :resize_to_limit => [270, 260]
+  end
+
   version :news_photo do
     process :resize_to_limit => [800, 600]
   end
@@ -30,5 +34,9 @@ class ImageUploader < CarrierWave::Uploader::Base
     
   version :service_main_photo_2 do
     process :resize_to_limit => [768, 560]
+  end
+
+  version :award_img do
+    process :resize_to_limit => [580, 830]
   end
 end

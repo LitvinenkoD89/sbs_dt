@@ -6,6 +6,7 @@ class HomeController < ApplicationController
   end
 
   def about_us
+    @members = Member.all
   end
   
   def contacts
@@ -15,6 +16,7 @@ class HomeController < ApplicationController
   end
 
   def reviews
+    @awards = Award.all
   end
 
   def gallery
