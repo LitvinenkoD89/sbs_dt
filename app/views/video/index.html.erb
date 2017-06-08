@@ -4,10 +4,6 @@
       jQuery('select').chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Type or select some options","placeholder_text_single":"Select an option","no_results_text":"No results match"});
     });
   
-(function($){$(function(){var $container=$("#jg_gallery");$container.mixitup({effects:["fade","scale","rotateZ"],onMixLoad:function(){$container.addClass("loaded")}});
-  var click=true;
-  $('a[data-fancybox="fancybox"]').fancybox({padding:0,margin:0,loop:true,openSpeed:500,closeSpeed:500,nextSpeed:500,prevSpeed:500,
-    afterLoad:function(){$(".fancybox-inner").click(function(){if(click==true){$("body").toggleClass("fancybox-full")}})},beforeShow:function(){$("body").addClass("fancybox-lock")},afterClose:function(){$("body").removeClass("fancybox-lock");},tpl:{image:'<div class="fancybox-image"style="background-image: url(https://livedemo00.template-help.com/joomla_60082/index.php/gallery/gallery/\'{href}\');"/>'},helpers:{title:null,thumbs:{height:50,width:80},overlay:{css:{"background":"#191919"}}}});})})(jQuery)
 jQuery(document).ready(function($){
   jQuery('.hasTooltip').tooltip({"html": true});
 if(window.MooTools) {
@@ -151,6 +147,22 @@ var path = "templates/theme3339/js/";
                       <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Видео</span>
                     </h2>
                   </header> 
+                  <div class="row">
+                    <% @videos.each do |video| %>  
+
+                      <div class="jg_element_cat mix gallery-grid gallery-item col-sm-6" style="margin-top: 15px">
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" src='<%= video.youtube_url %>'></iframe>
+                        </div>  
+                        <h3 style="text-align: center; margin-top: 10px">
+                          <%= video.title %>
+                        </h3>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div style="text-align: center; font-family: Gabriela;">
+                    <%= paginate @videos %>
+                  </div>  
                 </div>
               </main>
             </div>

@@ -3,29 +3,50 @@
     <div id="copyright" role="contentinfo">
       <div class="container">
         <div class="row">
-          <div class="copyright col-sm-6">
-            <span class="siteName">Berkana-show</span>
-            <span class="copy">&copy; </span>
-            <span class="year">2017</span>
-          </div>
-          <div class="moduletable   col-sm-5">
+          <div class="copyright col-sm-3">
             <div class="module_container">
-              <div class="mod-menu">
+              <div class="mod-menu" style="text-align: center;">
                 <ul class="menu link">
-                  <li class="item-549">
-                    <a href="https://livedemo00.template-help.com/cdn-cgi/l/email-protection#553c3b333a153130383a393c3b3e7b3a2732">
-                      <img src="https://livedemo00.template-help.com/joomla_60082/images/mail.png" alt="info@demolink.org" />
+                  <li class="item-549" style="text-align: center;">
+                    <a href="#" class="not-active">
+                      <img src="/images/mail.png" alt="info@demolink.org" />
                       <span class="image-title">
-                        <span class="__cf_email__" data-cfemail="fe97909891be9a9b939192979095d0918c99">manager@berkana.ru</span>
+                        <span class="__cf_email__">admin@showberkana.ru</span>
                       </span>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
+            <div style="text-align: center;">
+              <span class="siteName">Berkana-show</span>
+              <span class="copy">&copy; </span>
+              <span class=""><%= Time.now.year %></span>
+            </div>  
+          </div>
+          <div class="moduletable   col-sm-5" style="text-align: center;">
+            <h3 style="font-size: 18px;">
+              <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Хотите заказать огненное шоу? Оставьте свой телефон и наш менеджер перезвонит Вам!</span>
+
+            </h3>
+          </div>
+          <div class="moduletable   col-sm-4">
+            <form action="/order" class="new_order" id="new_order" method="post">
+              <div class="row" style="text-align: center">
+                <div class="input-group input-group" style="width: 80%; margin-left: 10%;">
+                  <input aria-describedby="sizing-addon1" class="form-control" style="max-height: 30px;" name="name" placeholder="Ваше имя" type="text" style="max-height: 30px;"/>
+                </div>
+                <div class="col-sm-6 input-group input-group" style="width: 80%; margin-top: 10px; margin-left: 10%;">
+                  <input aria-describedby="sizing-addon1" style="max-height: 30px;" class="form-control" name="phone" placeholder="Ваш телефон" type="text" /><span class="input-group-btn"><button class="btn btn-secondary" style="max-height: 30px; padding-top: 5px;" type="button">Заказать!</button></span>
+                </div>
+              </div>  
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>  
+</div>
+<div id="back-top">
+  <a href="index.html#"><span></span> </a>
+</div>
