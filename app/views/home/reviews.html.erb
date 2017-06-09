@@ -176,19 +176,7 @@ var path = "templates/theme3339/js/";
                 <div class="jg_gallery row cols-3" id="jg_gallery">
                   <div class="jg_displaynone"></div>  
                   <% @awards.each do |award| %>  
-                    <div class="jg_element_cat mix gallery-grid gallery-item col-sm-3" style="text-align: center;">
-                      <div class="jg_imgalign_catimgs">
-                        <%= link_to award.link_photo_url(:award_img) do %>
-                          <%= image_tag(award.link_photo_url(:award_img), size: "250x360", class: "jg_photo_custom") %>
-                        <% end %>  
-                        <div class="jg_catelem_txt">
-                          <ul></ul>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>  
-                  <% @awards.each do |award| %>  
-                    <div class="jg_element_cat mix gallery-grid gallery-item col-sm-3" style="text-align: center;">
+                    <div class="jg_element_cat mix gallery-grid gallery-item col-sm-3" style="text-align: center; overflow: hidden; max-height: 360px; margin-top: 15px; margin-bottom: 15px">
                       <div class="jg_imgalign_catimgs">
                         <%= link_to award.link_photo_url(:award_img) do %>
                           <%= image_tag(award.link_photo_url(:award_img), size: "250x360", class: "jg_photo_custom") %>
