@@ -11,3 +11,31 @@
   font-style: normal;
   src: url('10122.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'coca_cola_regular';
+  font-weight: normal;
+  font-style: normal;
+  src: url('coca_cola_regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'salamander_script';
+  font-weight: normal;
+  font-style: normal;
+  src: url('salamander_script.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'elizabeth_tt_uni';
+  font-weight: normal;
+  font-style: normal;
+  src: url('elizabeth_tt_uni.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'majestic';
+  font-weight: normal;
+  font-style: normal;
+  src: url('fonts/majestic.ttf') format('truetype');
+}
