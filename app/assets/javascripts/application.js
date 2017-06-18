@@ -1,6 +1,8 @@
 //= require jquery
 //= require ckeditor/init
+//= require jquery_ujs
 //= require selectize
+//= require bxslider
 //= require bootstrap-sprockets
 //= require blueimp-gallery-all
 //= require jumla/jquery_jumla.min
@@ -19,4 +21,9 @@
 //= require jumla/counters
 //= require jumla/menu
 //= require jumla/jquery.rd-navbar
+//= require jumla/jquery.jcarousel.min
+//= require jumla/jcarousel.responsive
+
+//= require jumla/jquery.bxslider
+
 //= require_tree .

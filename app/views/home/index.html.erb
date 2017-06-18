@@ -22,7 +22,7 @@
   
 var path = "templates/theme3339/js/";
 (function($){$(document).ready(function(){var o=$("#back-top");$(window).scroll(function(){if($(this).scrollTop()>100){o.fadeIn()}else{o.fadeOut()}});var $scrollEl=($.browser.mozilla||$.browser.msie)?$("html"):$("body");o.find("a").click(function(){$scrollEl.animate({scrollTop:0},400);return false})})})(jQuery);
-window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","/joomla_60082/index.php?option=com_ajax&format=json",true);r.send(null)}},840000);
+
 (function($){$(document).ready(function(){$(".moduletable#module_107>i.fa-user").click(function(){$(".moduletable#module_107").toggleClass("shown")})})})(jQuery);
   ;(function ($, undefined) {
       $(document).ready(function(){
@@ -305,19 +305,30 @@ data-slide-bg="/images/slider-1.jpg"
     
     <!-- Intro Text -->
     <div class="item_introtext">
-      <p>Thank you for visiting the theatre website. It is the mission of the HMS Theatre Department to instill a deep respect and knowledge of the craft of theatre in its many forms. Please take a look to see what we're all about! If you have any questions about our Theatre Department or are interested in getting involved, please feel free to contact us via e-mail at <a class="__cf_email__" href="https://livedemo00.template-help.com/cdn-cgi/l/email-protection" data-cfemail="066b676f6a4662636b696a6f686d28697461">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></p>
+      <p>Каждый праздник должен быть особенным и неповторимым! Поэтому артисты Шоу Беркана неустанно расширяют свой репертуар, учатся новым искусствам, изобретают фантастические сюжеты и создает уникальные шоу-программы для любого события!</p>
+      <p> 
+  Готовитесь к свадьбе? Фаер-шоу или огненно-пиротехническое шоу станет отличным финалом для Вашего праздника. А романтичные огненные инсталляции украсят свадебный танец молодых и позволят создать множество эффектных свадебных фото. </p><p>Если же свадьба пока лишь в планах, сделайте самое пламенное признание в любви или предложение с нашей помощью! </p><p>Планируете корпоратив? Порадуйте сотрудников Вашей компании светодиодным шоу. В нашем репертуаре всегда найдется номер, который органично впишется в тематику вашего вечера! </p><p>Детский праздник? Дети обязательно запомнят наших мимов, или великанов - ходулистов, в костюмах любимых сказочных персонажей! </p><p>Фешн-мероприятие  или торжественный прием украсят живые статуи, статуя-фонтан или светодиодный театр мод.</p>
+<p>
+И, конечно же, на любой праздник - Новый год, Рождество, День рожденья, Международный женский день и День защитника отечества, День всех влюбленных, Хеллоуин, Масленицу и не только - шоу "Беркана" предложат вам особенную тематическую программу!</p>
     </div>  
     </div>
   </div></div></div></div>
         </div></div>
 
-    <%= render "shared/about" %>
-
-<!--     <%= render "shared/comments" %>
-    
-    <%= render "shared/counters" %> -->
+    <%= render "shared/about_main_4" %>
 
     <%= render "shared/calendar" %>
 </div>
 </div>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.slider1').bxSlider({
+      slideWidth: 400,
+    minSlides: 2,
+    maxSlides: 3,
+    startSlide: 2,
+    slideMargin: 18
+    });
+  });
+</script>  

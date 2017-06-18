@@ -188,10 +188,12 @@ var path = "templates/theme3339/js/";
                         <% end %>  
                       </div> 
                       <div class="clearfix"></div>
+                      <header class='page_header'><h1 class="moduleTitle title" style="text-align: center"><span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last" style="font-family: majestic">А вместе мы - Шоу Беркана!</span></h1></header>
                     </div>
                   </div>
                 </div>
               </div>
+
             </div>
             <section class="page-category page-category__team">
               <header class="page_header">
@@ -200,7 +202,11 @@ var path = "templates/theme3339/js/";
                 </h2>  
               </header>
               <%= render "shared/about" %>
-
+              <div>
+              <h3 style="padding-bottom: 20px; padding-top: 30px;">
+              Шоу Беркана — это коллектив творческих людей с неистощаемой фонтазией! Вот уже много лет мы создаем и преподносим нашим зрителям фееричные и впечатляющие представления в различных оригинальных жанрах.
+              </h3>
+              </div>
               <%= render "shared/counters" %>
 
             </section>
@@ -209,7 +215,7 @@ var path = "templates/theme3339/js/";
       </div>
     </div>
   </div>
-      <div id="map_container"><div class="container">
+      <div id="map_container" style="margin-top: 30px"><div class="container">
         <div class="row">
           <div class="moduletable   col-sm-12">
             <div class="module_container">
@@ -218,7 +224,7 @@ var path = "templates/theme3339/js/";
 
                 </h3>
               </header>
-              <div id="map" class="map" style="margin-right: auto; margin-left: auto; width:100%; height:460px;"></div>
+              <div id="map" class="map" style="margin-top: 30px; margin-right: auto; margin-left: auto; width:100%; height:460px;"></div>
               <script>
                 function initMap() {
                   var infowindow = new google.maps.InfoWindow({

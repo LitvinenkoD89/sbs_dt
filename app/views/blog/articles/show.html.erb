@@ -1,0 +1,178 @@
+<script type="text/javascript">
+
+    jQuery(document).ready(function (){
+      jQuery('select').chosen({"disable_search_threshold":10,"search_contains":true,"allow_single_deselect":true,"placeholder_text_multiple":"Type or select some options","placeholder_text_single":"Select an option","no_results_text":"No results match"});
+    });
+
+jQuery(document).ready(function($){
+  jQuery('.hasTooltip').tooltip({"html": true});
+if(window.MooTools) {
+
+        // Mootools conflict fix for toggle with Bootstrap 3/JQuery
+        window.addEvent('load', function() {
+          $$('[rel=tooltip],[data-toggle],a[data-toggle],button[data-toggle],[data-toggle=collapse],a[data-toggle=dropdown],.hasTooltip').each(function (e) {
+              e.getParent().hide = null;
+              e.hide = null;
+          });
+        });
+
+      }
+});
+var path = "templates/theme3339/js/";
+(function($){$(document).ready(function(){var o=$("#back-top");$(window).scroll(function(){if($(this).scrollTop()>100){o.fadeIn()}else{o.fadeOut()}});var $scrollEl=($.browser.mozilla||$.browser.msie)?$("html"):$("body");o.find("a").click(function(){$scrollEl.animate({scrollTop:0},400);return false})})})(jQuery);
+</script>
+
+<div id="wrapper">
+<div class="wrapper-inner">
+<a id="fake" href='gallery-1.html#'></a>
+  <div id="top">
+    <div class="container">
+      <div class="row"><!-- Logo -->
+        <%= render "shared/joomla_logo" %>
+      </div>
+    </div>
+  </div>
+
+  <div id="header">
+    <div class="container">
+      <div class="row">
+        <nav class="moduletable home_menu  col-sm-12">
+          <div class="module_container">
+            <div class="icemegamenu">
+              <ul id="icemegamenu">
+                <li id="iceMenu_101" class="iceMenuLiLevel_1 ">
+                  <%= link_to root_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">Главная</span>
+                  <% end %>
+                </li>
+                <li id="iceMenu_134" class="iceMenuLiLevel_1 mzr-drop parent">
+                  <%= link_to services_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">
+                      Наши Услуги
+                    </span>
+                  <% end %>  
+                  <ul class="icesubMenu icemodules sub_level_1 style="width:188px"> 
+                    <li>
+                      <div class="iceCols" style="float:left;width:188px">
+                        <ul>
+                          <% get_services.each do |serv| %>
+                            <% if !current_page?(controller: 'blog/articles', action: 'show') && current_page?(controller: 'services', action: 'show', alias_name: "#{serv.alias_name}") %>
+                              <li id="iceMenu_336" class="iceMenuLiLevel_2 current active">
+                                <%= link_to service_path(serv.alias_name), class: " iceMenuTitle " do %> 
+                                  <span class="icemega_title icemega_nosubtitle">
+                                    <%= serv.name %>
+                                  </span>   
+                                <% end %> 
+                              </li>     
+                            <%  else %> 
+                              <li id="iceMenu_336" class="iceMenuLiLevel_2">
+                                <%= link_to service_path(serv.alias_name), class: " iceMenuTitle " do %> 
+                                  <span class="icemega_title icemega_nosubtitle">
+                                    <%= serv.name %> 
+                                  </span>  
+                                <% end %>  
+                              </li>      
+                            <% end %> 
+                          <% end %> 
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>       
+                <li id="iceMenu_134" class="iceMenuLiLevel_1 ">
+                  <%= link_to about_us_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">О нас</span>
+                  <% end %>  
+                </li>
+                <li id="iceMenu_285" class="iceMenuLiLevel_1 current active fullwidth">
+                  <%= link_to blog_path, class: " iceMenuTitle icemega_active " do %>
+                    <span class="icemega_title icemega_nosubtitle">Блог</span>
+                  <% end %> 
+                </li>
+                <li id="iceMenu_203" class="iceMenuLiLevel_1 gallery">
+                  <%= link_to gallery_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">Галлерея</span>
+                  <% end %>
+                </li>
+                <li id="iceMenu_203" class="iceMenuLiLevel_1 ">
+                  <%= link_to video_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">Видео</span>
+                  <% end %>
+                </li>
+                <li id="iceMenu_203" class="iceMenuLiLevel_1 ">
+                  <%= link_to reviews_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">Отзывы</span>
+                  <% end %>
+                </li>
+                <li id="iceMenu_142" class="iceMenuLiLevel_1 ">
+                  <%= link_to contacts_path, class: " iceMenuTitle " do %>
+                    <span class="icemega_title icemega_nosubtitle">Контакты</span>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div id="breadcrumbs">
+    <div class="container">
+      <div class="row">
+        <div class="moduletable   col-sm-12">
+          <div class="module_container">
+            <ul class="breadcrumb">
+              <li>
+                <a href="/" class="pathway">Berkana show</a>
+                <span class="divider fa fa-angle-double-right"></span>
+              </li>
+              <li>
+                <a href="/blog" class="pathway">Блог</a>
+                <span class="divider fa fa-angle-double-right"></span>
+              </li>
+              <li class="active"><span><%= @article.title%></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="content-inner">
+            <div id="component" class="col-sm-12">
+              <main role="main">
+                <div id="system-message-container"></div>
+                <div class="gallery">
+                  <header class="page_header">
+                    <h2>
+                      <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last"><%= @article.title %></span>
+                    </h2>
+                  </header> 
+                  <div class="items-leading">
+                    <article class="leading-0 item" id="item-118">
+                        <!-- Intro image -->
+                      <figure class="item_img img-intro img-intro__none">
+                        <a href="#" class="not-active">
+                          <%= image_tag(@article.photo_url(:article_main_img)) %>
+
+                        </a>
+                      </figure>
+
+                      <div class="item_introtext">
+                        <%= @article.description.html_safe %>
+                      </div>
+                    </article>
+                    <div class="clearfix"></div> 
+                  </div>  
+                </div>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

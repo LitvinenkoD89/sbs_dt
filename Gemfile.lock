@@ -81,6 +81,7 @@ GEM
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.3)
+    bxslider-rails (4.2.5.1)
     byebug (9.0.6)
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
@@ -271,6 +272,7 @@ DEPENDENCIES
   activeadmin!
   blueimp-gallery
   bootstrap-sass
+  bxslider-rails
   byebug
   carrierwave
   ckeditor!

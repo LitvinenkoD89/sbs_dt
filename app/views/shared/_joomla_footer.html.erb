@@ -34,10 +34,10 @@
             <form action="/order" class="new_order" id="new_order" method="post">
               <div class="row" style="text-align: center">
                 <div class="input-group input-group" style="width: 80%; margin-left: 10%;">
-                  <input aria-describedby="sizing-addon1" class="form-control" style="max-height: 30px;" name="name" placeholder="Ваше имя" type="text" style="max-height: 30px;"/>
+                  <input aria-describedby="sizing-addon1" class="form-control" style="max-height: 30px;" id="order_name" name="name" placeholder="Ваше имя" type="text" style="max-height: 30px;"/>
                 </div>
                 <div class="col-sm-6 input-group input-group" style="width: 80%; margin-top: 10px; margin-left: 10%;">
-                  <input aria-describedby="sizing-addon1" style="max-height: 30px;" class="form-control" name="phone" placeholder="Ваш телефон" type="text" /><span class="input-group-btn"><button class="btn btn-secondary" style="max-height: 30px; padding-top: 5px;" type="button">Заказать!</button></span>
+                  <input id="order_phone" aria-describedby="sizing-addon1" style="max-height: 30px;" class="form-control" name="phone" placeholder="Ваш телефон" type="text" /><span class="input-group-btn"><button class="btn btn-secondary" id="create_order" style="max-height: 30px; padding-top: 5px;" type="button">Заказать!</button></span>
                 </div>
               </div>  
             </form>
@@ -50,3 +50,21 @@
 <div id="back-top">
   <a href="index.html#"><span></span> </a>
 </div>
+
+<script type="text/javascript">
+  
+  $( document ).ready(function() {
+    $('#create_order').click(function(){
+      debugger;
+      $.ajax({
+        type: 'POST',
+        url: '/order',
+        dataType: 'json',
+        data: { name: $('#order_name').val(), phone: $('#order_phone').val() },
+        success: function(data) {
+          alert('!!!!!!!!');
+        }
+      });   
+    });
+  });
+</script>

@@ -147,6 +147,36 @@ var path = "templates/theme3339/js/";
                       <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first item_title_part_last">Блог</span>
                     </h2>
                   </header> 
+                  <div class="items-leading">
+                    <% @articles.each do |article| %>
+                      <article class="leading-0 item" id="item-118">
+                          <!-- Intro image -->
+                        <figure class="item_img img-intro img-intro__none">
+                          <a href="#" class="not-active">
+                            <%= image_tag(article.photo_url(:article_main_img)) %>
+
+                          </a>
+                        </figure>
+                        <header class="item_header">
+                          <h3 class="item_title">
+                            <a href="#" class="not-active">
+                              <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">
+                                <%= article.title %>
+                              </span>
+                          </a></h3>
+                        </header>
+
+                        <div class="item_introtext">
+                          <%= article.short_description.html_safe %>
+                        </div>
+                        <%= link_to "Подробнее", blog_article_path(article), class: "btn btn-info" %>
+                      </article>
+                      <div class="clearfix"></div>
+                    <% end %> 
+                    <div style="text-align: center; font-family: Gabriela;">
+                      <%= paginate @articles %>
+                    </div>   
+                  </div>  
                 </div>
               </main>
             </div>

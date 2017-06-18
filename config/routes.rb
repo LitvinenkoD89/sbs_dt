@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "video"   => "video#index"
   get "blog"    => "blog#index"
   
+  namespace :blog do
+    resources :articles, only: [:show]
+  end  
+  post "order"  => "order#create"
   get "about_us" => "home#about_us"
   get "contacts" => "home#contacts"
   get "reviews"  => "home#reviews"

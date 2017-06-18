@@ -1,4 +1,4 @@
-    <div id="content">
+    <div id="content" style='    border-top: 1px solid #1c1c1c;'>
       <div class="container">
         <div class="row">
           <div class="content-inner">
@@ -52,24 +52,15 @@
                                   <figure class="item_img img-intro img-intro__"> 
                                     <%= image_tag(event.articles.first.photo_url(:thumb)) %>
                                   </figure>
-                                  <div class="item_introtext">
+                                  <div class="item_introtext" style="max-height: 60px">
                                     <%= event.articles.first.short_description.html_safe %>
                                   </div>
+
+                                  <%= link_to "Подробнее", blog_article_path(event.articles.first), class: "btn btn-info" %>
                                 </div>
                                 <div class="clearfix"></div>  
                               </article>
                             <% end %>  
-                            <!-- <article class="col-sm-6 item item_num1 item__module  lastItem" id="item_154">
-                              <div class="item_content">
-                                <figure class="item_img img-intro img-intro__"> 
-                                  <img src="https://livedemo00.template-help.com/joomla_60082/images/page1-img6.jpg" alt="">
-                                </figure>
-                                <div class="item_introtext">
-                                  From pantomimes to family shows to something a little more alternative, our guides will help you find the festive show that your lot will love. Just keep an eye out for the latest theatre ... 
-                                </div>
-                              </div>
-                              <div class="clearfix"></div>  
-                            </article> -->
                           </div> 
                           <div class="clearfix"></div>
                         </div>

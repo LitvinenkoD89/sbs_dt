@@ -39,4 +39,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :award_img do
     process :resize_to_limit => [580, 830]
   end
+
+  version :article_main_img do
+    process :resize_to_limit => [1170, 560]
+  end  
 end
