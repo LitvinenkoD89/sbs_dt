@@ -1,5 +1,5 @@
 ActiveAdmin.setup do |config|
-  config.site_title = "Dark Theater"
+  config.site_title = "Berkana Show"
   config.register_javascript 'ckeditor/init.js'
   config.authentication_method = :authenticate_user!
   config.current_user_method = :current_user
