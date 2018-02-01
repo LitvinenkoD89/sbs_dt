@@ -8,5 +8,6 @@
 # User.create!(email: 'admin@gmail.com', password: "75d23af4", password_confirmation: "75d23af4")
 User.create!(email: 'berkana_show@mail.ru', password: "e7229d74", password_confirmation: "e7229d74")
 User.create!(email: 'torerolda@gmail.ru', password: "f23858dc", password_confirmation: "f23858dc")
+User.create!(email: 'viktoriya@berkana-show.ru', password: "e7229d74", password_confirmation: "e7229d74")
 
 Setting.create({'title' => 'SMS-уведомления', 'name' => 'sms_notification', 'status' => 0})
