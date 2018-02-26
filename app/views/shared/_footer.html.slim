@@ -26,6 +26,10 @@ footer.blue id="footer"
 
       .col-sm-2
         br
+        p.notice
+          = notice
+        p.alert
+          = alert
         - flash.each do |name, msg| 
           = content_tag :div, msg, class: "alert alert-#{name}"
     hr

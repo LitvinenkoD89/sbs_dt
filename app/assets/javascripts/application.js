@@ -1,5 +1,6 @@
 //= require jquery
 //= require ckeditor/init
+//= require jquery_ujs
 //= require selectize
 //= require bxslider
 //= require bootstrap-sprockets
