@@ -18,5 +18,6 @@ module DarkTheater
     config.assets.precompile += %w( ckeditor/* )
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.secret_key_base = '0590030b36a1c59c5376ffa046e7086c8e52a743c5caa0d8a14e5dd2a15b35d9d871f0bfb3dd2d444b83b6688aec83c5a3eb4e9380b7005ef9ca12b66f1ee55a'
+    config.cache_store = :redis_store, "redis://localhost:6379/0/cache", { expires_in: 90.minutes }
   end
 end

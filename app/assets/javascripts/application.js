@@ -1,6 +1,4 @@
-//= require active_admin/base
 //= require jquery
-//= require jquery3
 //= require ckeditor/init
 //= require selectize
 //= require bxslider
