@@ -9,7 +9,7 @@ class OrderController < ApplicationController
     respond_to do |format|
       if @order.save
         # SmsWorker.perform_async(@order.id) if setting.status == 1
-        SmsRu.sms.send(api_id: '14DAA4AA-4E28-8218-B6E9-26D5971078D3', to: '79515284082', text: "#{@order.name} #{@order.phone}") if setting.status == 1
+        SmsRu.sms.send(api_id: '14DAA4AA-4E28-8218-B6E9-26D5971078D3', to: '79518497401', text: "#{@order.name} #{@order.phone}") if setting.status == 1
         format.html { redirect_to :back, success: 'Заявка принята' }
       else
         format.html { redirect_to :back, danger: 'Вы забыли указать номер телефона' }
