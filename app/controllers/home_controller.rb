@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @past_events = Event.past.first(5)
+    @past_events = Event.past.last(5)
     @future_events = Event.future.first(3)
     @events_with_articles_all = Event.joins(:notepads)
     @events_with_articles = []
@@ -8,7 +8,7 @@ class HomeController < ApplicationController
   end
 
   def about_us
-    @members = Member.all
+    @members = Member.all.order(priority: :asc)
   end
   
   def contacts

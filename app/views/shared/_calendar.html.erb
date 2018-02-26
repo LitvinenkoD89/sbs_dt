@@ -46,7 +46,7 @@
                         </header>
                         <div class="mod-newsflash-adv mod-newsflash-adv__indent cols-2" id="module_216">
                           <div class="row"  style="text-align: center">
-                            <% @events_with_articles.each do |event| %>
+                            <% @events_with_articles.last(2).each do |event| %>
                               <article class="col-sm-6 item item_num0 item__module  " id="item_153">
                                 <div class="item_content">
                                   <figure class="item_img img-intro img-intro__"> 
@@ -92,6 +92,8 @@
                             <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first"><%= event.title %></span>
                           </h5>
                           <div class="item_introtext">
+                            <%= event.address %>
+                            <br>
                             <%= print_event_date(event.started_at) %>
                           </div>
                         </div>
