@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, ActiveAdmin::Devise.config
+  devise_for :users
+  devise_scope :user do 
+    get '/users/sign_out' => 'devise/sessions#destroy' 
+  end
   ActiveAdmin.routes(self)
   root to: "home#index"
   resources :services, param: :alias_name
