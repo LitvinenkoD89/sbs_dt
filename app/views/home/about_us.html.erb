@@ -188,6 +188,29 @@ var path = "templates/theme3339/js/";
                         <% end %>  
                       </div> 
                       <div class="row">
+                        <% @members[4..7].each do |member| %>
+                          <article class="col-sm-3 item item_num0 item__module  " id="item_41">
+      
+                            <div class="item_content" style="text-align: center;">
+                              <figure class="item_img img-intro img-intro__none"> 
+                                <%= image_tag(member.avatar_url(:avatar)) %>
+                              </figure>
+                              <h5 class="item_title item_title__">
+                                <span class="item_title_part_0 item_title_part_odd item_title_part_first_half item_title_part_first">
+                                  <%= member.name %>
+                                </span> 
+                              </h5>
+                              <div class="item_introtext">
+                                <p>
+                                  <%= member.description %>
+                                </p>
+                              </div>
+                            </div>
+                            <div class="clearfix"></div>
+                          </article>
+                        <% end %>  
+                      </div>
+                      <div class="row">
                         <% @members.last(4).each do |member| %>
                           <article class="col-sm-3 item item_num0 item__module  " id="item_41">
       
@@ -286,6 +309,8 @@ var path = "templates/theme3339/js/";
                     {marker: {lat: 57.627893, lng: 39.875475}, title: 'Ярославль'},
                     {marker: {lat: 59.129999, lng: 37.919639}, title: 'Череповец'},
                     {marker: {lat: 55.748517, lng: 37.646112}, title: 'Москва'},
+                    {marker: {lat: 43.220385, lng: 76.871349}, title: 'Алма-Ата'},
+                    {marker: {lat: 24.997942, lng: 55.186500}, title: 'Дубай'},
                   ]
                   var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 3,
