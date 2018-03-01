@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
+  # skip_before_action :verify_authenticity_token, only: [:create]
 
   def authenticate_active_admin_user!
     authenticate_user!
